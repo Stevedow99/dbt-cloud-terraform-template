@@ -1,9 +1,11 @@
 variable "dbt_cloud_account_id" {
   description = "The unique numeric id tied to the dbt Cloud account"
+  sensitive   = true
 }
 
 variable "dbt_cloud_token" {
   description = "The service token terraform will use to appl changes to dbt Cloud"
+  sensitive   = true
 }
 
 variable "dbt_cloud_project_name" {
