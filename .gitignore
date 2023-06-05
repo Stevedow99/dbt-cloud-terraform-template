@@ -8,4 +8,6 @@ Clipboards/
 .terraform.lock.hcl
 terraform.tfstate.backup
 terraform.tfstate
+
+# ignore local log files
 terraform.log
