@@ -1,7 +1,7 @@
 
- # account level info
- dbt_cloud_account_id   = "<<param>>"
- dbt_cloud_token        = "<<param>>"
+#  account level info -- NOTE it's recommend you pass these a env vars or tf vault secerts and not define them in the tfvars file
+#  dbt_cloud_account_id   = 123456
+#  dbt_cloud_token        = "a dbt cloud service token"
 
  # project info
  dbt_cloud_project_name = "marketing_analytics_project"
