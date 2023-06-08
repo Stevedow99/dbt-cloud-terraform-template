@@ -1,0 +1,23 @@
+# ignore ALL files in ANY directory named .terraform
+.terraform/
+
+# ignore ALL clipboard files
+Clipboards/
+clipboards/
+
+
+# ignore default terraform files
+.terraform.lock.hcl
+terraform.tfstate.backup
+terraform.tfstate
+.backup
+
+# ignore local log files
+terraform.log
+
+# ignore all other local files
+.favorites.json
+
+
+# ignore the .gitignore file
+.gitignore
