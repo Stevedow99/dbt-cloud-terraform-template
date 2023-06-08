@@ -14,12 +14,6 @@ provider "dbt" {
   host_url   = "https://cloud.getdbt.com/api"
 }
 
-
-# build the project
-resource "dbt_cloud_project" "project_base_name" {
-    name = var.dbt_cloud_project_name
-}
-
 # build all of the access groups
 resource "dbt_cloud_group" "group" {
 
@@ -38,7 +32,7 @@ resource "dbt_cloud_group" "group" {
       all_projects = group_permissions.value.all_projects
       # The line below checks if 'all_projects' is true. If it is, then 'project_id' is set to null.
       # If 'all_projects' is false, 'project_id' is set to a project id.
-      project_id = group_permissions.value.all_projects ? null : dbt_cloud_project.project_base_name.id
+      project_id = group_permissions.value.all_projects ? null : group_permissions.value.project_id
 
     }
   }
