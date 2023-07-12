@@ -11,7 +11,7 @@
 # -----------------------------------------------------
 # project info
 # -----------------------------------------------------
-dbt_cloud_project_name = "a_dbt_cloud_bigquery_project"
+dbt_cloud_project_name = "a_dbtcloud_bigquery_project"
 
 # -----------------------------------------------------
 # bigquery connection info
@@ -38,7 +38,7 @@ retries                     = 3
 # -----------------------------------------------------
 # github connection info
 # -----------------------------------------------------
-remote_url             = "git@github.com:something/dbt_cloud_repo.git"
+remote_url             = "git@github.com:something/dbtcloud_repo.git"
 github_installation_id = 28133080
 
 
@@ -49,7 +49,7 @@ environments = [
   {
     environment_name = "IDE Development Environment"
     environment_type = "development"
-    dbt_version      = "1.0.0"
+    dbt_version      = "1.5.0-latest"
   },
   {
     environment_name    = "QA environment"
@@ -57,14 +57,14 @@ environments = [
     snowflake_auth_type = "password"
     bigquery_dataset    = "A_BQ_QA_DATASET"
     environment_schema  = "qa_schema"
-    dbt_version         = "1.0.0"
+    dbt_version         = "1.5.0-latest"
   },
   {
-    environment_name   = "prod environment"
+    environment_name   = "PROD environment"
     environment_type   = "deployment"
     bigquery_dataset   = "A_BQ_PRODUCTION_DATASET"
     environment_schema = "prod_schema"
-    dbt_version        = "1.0.0"
+    dbt_version        = "1.5.0-latest"
     number_of_threads  = 16
     use_custom_branch  = true
     custom_branch      = "branch2"

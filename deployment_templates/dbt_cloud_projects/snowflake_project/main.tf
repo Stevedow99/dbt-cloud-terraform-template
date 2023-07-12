@@ -1,21 +1,21 @@
 terraform {
   required_providers {
-    dbt = {
-      source  = "GtheSheep/dbt-cloud"
-      version = "0.1.9"
+    dbtcloud = {
+      source  = "dbt-labs/dbtcloud"
+      version = "0.2.2"
     }
   }
 }
 
 # define the provider
-provider "dbt" {
+provider "dbtcloud" {
   account_id = var.dbt_cloud_account_id
   token      = var.dbt_cloud_token
   host_url   = "https://cloud.getdbt.com/api"
 }
 
 # build out the project
-resource "dbt_cloud_project" "dbt_cloud_snowflake_project" {
+resource "dbtcloud_project" "dbtcloud_snowflake_project" {
   name                     = var.dbt_cloud_project_name
   dbt_project_subdirectory = var.dbt_project_subdirectory
 }
@@ -25,7 +25,7 @@ resource "dbt_cloud_project" "dbt_cloud_snowflake_project" {
 module "snowflake_connection" {
   source = "../../../modules/connections/snowflake"
 
-  dbt_cloud_project_id      = dbt_cloud_project.dbt_cloud_snowflake_project.id
+  dbt_cloud_project_id      = dbtcloud_project.dbtcloud_snowflake_project.id
   snowflake_connection_name = var.snowflake_connection_name
   account                   = var.snowflake_account
   database                  = var.default_snowflake_database
@@ -41,7 +41,7 @@ module "snowflake_connection" {
 module "github_connection" {
   source = "../../../modules/connections/github_app_repo"
 
-  dbt_cloud_project_id   = dbt_cloud_project.dbt_cloud_snowflake_project.id
+  dbt_cloud_project_id   = dbtcloud_project.dbtcloud_snowflake_project.id
   remote_url             = var.remote_url
   github_installation_id = var.github_installation_id
 }
@@ -51,7 +51,7 @@ module "snowflake_environments" {
   source = "../../../modules/environments/snowflake_environment"
   count  = length(var.environments)
 
-  dbt_cloud_project_id             = dbt_cloud_project.dbt_cloud_snowflake_project.id
+  dbt_cloud_project_id             = dbtcloud_project.dbtcloud_snowflake_project.id
   environment_name                 = var.environments[count.index].environment_name
   environment_type                 = var.environments[count.index].environment_type
   dbt_version                      = var.environments[count.index].dbt_version

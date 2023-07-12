@@ -19,8 +19,8 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [dbt_cloud_project_repository.github_connection](https://registry.terraform.io/providers/GtheSheep/dbt-cloud/0.1.9/docs/resources/cloud_project_repository) | resource |
-| [dbt_cloud_repository.github_credential](https://registry.terraform.io/providers/GtheSheep/dbt-cloud/0.1.9/docs/resources/cloud_repository) | resource |
+| [dbtcloud_project_repository.github_connection](https://registry.terraform.io/providers/GtheSheep/dbt-cloud/0.1.9/docs/resources/cloud_project_repository) | resource |
+| [dbtcloud_repository.github_credential](https://registry.terraform.io/providers/GtheSheep/dbt-cloud/0.1.9/docs/resources/cloud_repository) | resource |
 
 ## Inputs
 
@@ -40,7 +40,7 @@ No outputs.
 module "github_connection" {
   source = "../../../modules/connections/github_app_repo"
 
-  dbt_cloud_project_id   = dbt_cloud_project.dbt_cloud_bigquery_project.id
+  dbt_cloud_project_id   = dbtcloud_project.dbtcloud_bigquery_project.id
   remote_url             = var.remote_url
   github_installation_id = var.github_installation_id
 }

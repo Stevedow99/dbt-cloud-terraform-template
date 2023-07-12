@@ -1,23 +1,23 @@
 terraform {
   required_providers {
-    dbt = {
-      source  = "GtheSheep/dbt-cloud"
-      version = "0.1.9"
+    dbtcloud = {
+      source  = "dbt-labs/dbtcloud"
+      version = "0.2.2"
     }
   }
 }
 
 # define the provider
-provider "dbt" {
+provider "dbtcloud" {
   account_id = var.dbt_cloud_account_id
   token      = var.dbt_cloud_token
   host_url   = "https://cloud.getdbt.com/api"
 }
 
 # build all of the access groups
-resource "dbt_cloud_group" "group" {
+resource "dbtcloud_group" "group" {
 
-  for_each = { for i, group in var.dbt_cloud_groups : i => group }
+  for_each = { for i, group in var.dbtcloud_groups : i => group }
   
   name = each.value.name
 

@@ -1,13 +1,13 @@
 terraform {
   required_providers {
-    dbt = {
-      source  = "GtheSheep/dbt-cloud"
-      version = "0.1.9"
+    dbtcloud = {
+      source  = "dbt-labs/dbtcloud"
+      version = "0.2.2"
     }
   }
 }
 
-resource "dbt_cloud_connection" "snowflake_credential" {
+resource "dbtcloud_connection" "snowflake_credential" {
   name                = var.snowflake_connection_name
   type                = "snowflake"
   project_id          = var.dbt_cloud_project_id
@@ -21,7 +21,7 @@ resource "dbt_cloud_connection" "snowflake_credential" {
   oauth_client_secret = var.oauth_client_secret
 }
 
-resource "dbt_cloud_project_connection" "snowflake_connection" {
-  connection_id = dbt_cloud_connection.snowflake_credential.connection_id
+resource "dbtcloud_project_connection" "snowflake_connection" {
+  connection_id = dbtcloud_connection.snowflake_credential.connection_id
   project_id    = var.dbt_cloud_project_id
 }
