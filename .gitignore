@@ -11,6 +11,7 @@ clipboards/
 terraform.tfstate.backup
 terraform.tfstate
 .backup
+.terraform.tfstate.lock.info
 
 # ignore local log files
 terraform.log

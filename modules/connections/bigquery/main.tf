@@ -1,13 +1,13 @@
 terraform {
   required_providers {
-    dbt = {
-      source  = "GtheSheep/dbt-cloud"
-      version = "0.1.9"
+    dbtcloud = {
+      source  = "dbt-labs/dbtcloud"
+      version = "0.2.2"
     }
   }
 }
 
-resource "dbt_cloud_bigquery_connection" "bigquery_credential" {
+resource "dbtcloud_bigquery_connection" "bigquery_credential" {
   project_id                  = var.dbt_cloud_project_id
   name                        = var.bigquery_connection_name
   type                        = "bigquery"
@@ -31,7 +31,7 @@ resource "dbt_cloud_bigquery_connection" "bigquery_credential" {
 
 }
 
-resource "dbt_cloud_project_connection" "bigquery_connection" {
-  connection_id = dbt_cloud_bigquery_connection.bigquery_credential.connection_id
+resource "dbtcloud_project_connection" "bigquery_connection" {
+  connection_id = dbtcloud_bigquery_connection.bigquery_credential.connection_id
   project_id    = var.dbt_cloud_project_id
 }

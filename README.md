@@ -16,10 +16,10 @@ This repository contains a collection of Terraform modules and templates that fa
 </br>
 
 - `deployment_templates/`: Here, you can find example usages of the modules. These examples should help you understand how to use the modules in your own Terraform configurations.
-    - **`dbt_cloud_projects/`** - A terraform project example for managing dbt Cloud account level configurations (e.g. groups and permissions)
+    - **`dbtcloud_projects/`** - A terraform project example for managing dbt Cloud account level configurations (e.g. groups and permissions)
         - **`bigquery_project/`** - A terraform project example for deploying and managing a dbt Cloud project that connects to BigQuery (this is includes connection at the account level and the environment level)
         - **`snowflake_project/`** - A terraform project example for deploying and managing a dbt Cloud project that connects to Snowflake (this is includes connection at the account level and the environment level)
-    - **`dbt_cloud_account_mgmt/`** - A terraform project example for managing dbt Cloud account level configurations (e.g. groups and permissions)
+    - **`dbtcloud_account_mgmt/`** - A terraform project example for managing dbt Cloud account level configurations (e.g. groups and permissions)
 
 
 

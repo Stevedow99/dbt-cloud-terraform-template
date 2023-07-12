@@ -8,7 +8,7 @@ variable "dbt_cloud_token" {
   sensitive   = true
 }
 
-variable "dbt_cloud_groups" {
+variable "dbtcloud_groups" {
   description = "A list of RBAC permission groups to create"
   type = list(object({
     name = string
@@ -25,7 +25,7 @@ variable "dbt_cloud_groups" {
   # setting some validation to make sure that the given permission set is a valid value
   validation {
     condition = alltrue([
-      for group in var.dbt_cloud_groups :
+      for group in var.dbtcloud_groups :
       alltrue([
         for permission in group.permissions :
         contains(["account_admin", "admin", "database_admin", "git_admin", "team_admin", "job_admin", "job_viewer", "analyst", "developer", "stakeholder", "readonly", "account_viewer", "project_creator"], permission.permission_set)

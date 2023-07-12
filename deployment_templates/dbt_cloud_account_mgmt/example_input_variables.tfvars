@@ -1,5 +1,5 @@
 # project group information
-dbt_cloud_groups = [
+dbtcloud_groups = [
   {
     name = "System Devs"
     permissions = [
@@ -9,11 +9,11 @@ dbt_cloud_groups = [
       },
       {
         permission_set = "stakeholder"
-        project_id     = 247729
+        project_id     = 245412
       },
       {
         permission_set = "stakeholder"
-        project_id     = 256231
+        project_id     = 246640
       }
     ]
   },

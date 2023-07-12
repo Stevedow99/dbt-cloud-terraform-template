@@ -11,7 +11,7 @@
 # -----------------------------------------------------
 # project info
 # -----------------------------------------------------
-dbt_cloud_project_name = "a_dbt_cloud_snowflake_project"
+dbt_cloud_project_name = "a_dbtcloud_snowflake_project"
 
 # -----------------------------------------------------
 # snowflake connection info
@@ -32,7 +32,7 @@ default_snowflake_warehouse = "MY_DEFAULT_WAREHOUSE"
 # -----------------------------------------------------
 # github connection info
 # -----------------------------------------------------
-remote_url             = "git@github.com:something/dbt_cloud_repo.git"
+remote_url             = "git@github.com:something/dbtcloud_repo.git"
 github_installation_id = 28133080
 
 
@@ -43,7 +43,7 @@ environments = [
   {
     environment_name    = "IDE Development Two"
     environment_type    = "development"
-    dbt_version         = "1.0.0"
+    dbt_version         = "1.5.0-latest"
   },
   {
     environment_name    = "QA environment"
@@ -53,19 +53,19 @@ environments = [
     warehouse           = "A_SNOWFLAKE_WAREHOUSE"
     snowflake_user      = "A_SNOWFLAKE_USER"
     environment_schema  = "qa_schema"
-    dbt_version         = "1.0.0"
+    dbt_version         = "1.5.0-latest"
     snowflake_role      = "A_SNOWFLAKE_ROLE"
     snowflake_password  = "auserspassword"
   },
   {
-    environment_name    = "prod"
+    environment_name    = "PROD ENV"
     environment_type    = "deployment"
     snowflake_auth_type = "password"
     database            = "B_SNOWFLAKE_DATABASE"
     warehouse           = "B_SNOWFLAKE_WAREHOUSE"
     snowflake_user      = "B_SNOWFLAKE_USER"
     environment_schema  = "prod_schema"
-    dbt_version         = "1.0.0"
+    dbt_version         = "1.5.0-latest"
     snowflake_role      = "B_SNOWFLAKE_ROLE"
     snowflake_password  = "buserspassword"
     number_of_threads   = 16
