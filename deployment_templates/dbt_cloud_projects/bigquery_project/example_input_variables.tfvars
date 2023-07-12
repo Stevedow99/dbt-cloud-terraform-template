@@ -49,7 +49,7 @@ environments = [
   {
     environment_name = "IDE Development Environment"
     environment_type = "development"
-    dbt_version      = "1.0.0"
+    dbt_version      = "1.5.0-latest"
   },
   {
     environment_name    = "QA environment"
@@ -60,11 +60,11 @@ environments = [
     dbt_version         = "1.5.0-latest"
   },
   {
-    environment_name   = "PRO environment"
+    environment_name   = "PROD environment"
     environment_type   = "deployment"
     bigquery_dataset   = "A_BQ_PRODUCTION_DATASET"
     environment_schema = "prod_schema"
-    dbt_version        = "1.0.0"
+    dbt_version        = "1.5.0-latest"
     number_of_threads  = 16
     use_custom_branch  = true
     custom_branch      = "branch2"
